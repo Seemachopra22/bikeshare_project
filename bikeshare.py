@@ -32,13 +32,13 @@ def get_filters():
 
 
     # TO DO: get user input for month (all, january, february, ... , june)
-    month = input('Enter the name of the month to analysed {}:'.format(months))
+    month = user_input('Enter the name of the month to analysed {}:'.format(months)).strip().lower()
 
 
 
 
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
-    day = input('Enter name of the day of week to analyzed {}:'.format(days))
+    day = user_input('Enter name of the day of week to analyzed {}:'.format(days)).strip().lower()
 
 
 
