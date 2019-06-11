@@ -164,37 +164,37 @@ def user_stats(df):
     start_time = time.time()
 
     # TO DO: Display counts of user types
-    user_types = df['User Type'].value_counts
-    print('Display counts of user types:', user_types)
+    user_types = df['User Type'].head(10).value_counts
+    print('User Type:', user_types)
 
 
     # TO DO: Display counts of gender
     try:
-        genders = df['Gender'].value_counts
+        genders = df['Gender'].head(10).value_counts
         print('Gender:', genders)
 
 
     except KeyError:
-        print("There is not [Gender] column in this spreadsheet!")
+        print("There is no [Gender] column in this spreadsheet!")
 
 
     # TO DO: Display earliest, most recent, and most common year of birth
     try:
         earliest_year_of_birth = df['Birth Year'].min()
-        print('Birth Year:', earliest_year_of_birth)
+        print('Earliest birth Year:', earliest_year_of_birth)
         print()
     except KeyError:
-        print("There is not [Birth Year] column in this spreadsheet!")
+        print("There is no [Birth Year] column in this spreadsheet!")
     try:
         recent_year_of_birth = df['Birth Year'].max()
-        print('Birth Year:', recent_year_of_birth)
+        print('Recent birth year:', recent_year_of_birth)
     except KeyError:
         print("There is not [Birth Year] column in this spreadsheet!")
     try:
         most_common_year_of_birth = df['Birth Year'].mode().loc[0]
-        print('Birth Year:', most_common_year_of_birth )
+        print('Most common birth year:', most_common_year_of_birth)
     except KeyError:
-        print("There is not [Birth Year] column in this spreadsheet!")
+        print("There is no [Birth Year] column in this spreadsheet!")
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
