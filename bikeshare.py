@@ -95,16 +95,16 @@ def time_stats(df):
 
     # TO DO: display the most common month
     most_common_month = df['month'].value_counts().idxmax()
-    print('display most common month:', most_common_month)
+    print('Most common month: {}'.format(most_common_month))
 
     # TO DO: display the most common day of week
     most_common_day_of_week = df['day_of_week'].value_counts().idxmax()
-    print('Display most common day of week:', most_common_day_of_week)
+    print('Most common day of week: {}'.format(most_common_day_of_week))
 
 
     # TO DO: display the most common start hour
     most_common_hour = df['hour'].value_counts().idxmax()
-    print('Display the common start hour:', most_common_hour)
+    print('Most common start hour: {}'.format(most_common_hour))
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
