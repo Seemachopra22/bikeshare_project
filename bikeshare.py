@@ -117,19 +117,19 @@ def station_stats(df):
 
     # TO DO: display most commonly used start station
     most_common_station = df['Start Station'].value_counts().idxmax()
-    print('Display most commonly used start station:', most_common_station)
+    print('Most commonly used start station: {}'.format(most_common_station))
 
 
     # TO DO: display most commonly used end station
     most_common_end_station = df['End Station'].value_counts().idxmax()
-    print('Display most commonly used end station:', most_common_end_station)
+    print('Most commonly used end station: {}'.format(most_common_end_station))
 
 
 
 
     # TO DO: display most frequent combination of start station and end station trip
     most_common_start_end_station = df[['Start Station', 'End Station']].mode().loc[0]
-    print('Display most frequent combination of start and end station trip:', most_common_start_end_station)
+    print('Most frequent combination of start and end station trip: {}'.format(most_common_start_end_station))
 
 
     print("\nThis took %s seconds." % (time.time() - start_time))
@@ -144,13 +144,13 @@ def trip_duration_stats(df):
 
     # TO DO: display total travel time
     total_travel_time = df['Trip Duration'].sum()
-    print('Display total travel time:', total_travel_time)
+    print('Total trip duration: {}'.format(total_travel_time))
 
 
 
     # TO DO: display mean travel time
     mean_travel_time = df['Trip Duration'].mean()
-    print('Display mean travel time:', mean_travel_time)
+    print('Mean travel time: {}'.format(round(mean_travel_time, 3)))
 
 
     print("\nThis took %s seconds." % (time.time() - start_time))
@@ -164,37 +164,37 @@ def user_stats(df):
     start_time = time.time()
 
     # TO DO: Display counts of user types
-    user_types = df['User Type'].value_counts
-    print('Display counts of user types:', user_types)
+    user_types = df['User Type'].head(10).value_counts
+    print('User Type:', user_types)
 
 
     # TO DO: Display counts of gender
     try:
-        genders = df['Gender'].value_counts
+        genders = df['Gender'].head(10).value_counts
         print('Gender:', genders)
 
 
     except KeyError:
-        print("There is not [Gender] column in this spreadsheet!")
+        print("There is no [Gender] column in this spreadsheet!")
 
 
     # TO DO: Display earliest, most recent, and most common year of birth
     try:
         earliest_year_of_birth = df['Birth Year'].min()
-        print('Birth Year:', earliest_year_of_birth)
+        print('Earliest birth Year:', earliest_year_of_birth)
         print()
     except KeyError:
-        print("There is not [Birth Year] column in this spreadsheet!")
+        print("There is no [Birth Year] column in this spreadsheet!")
     try:
         recent_year_of_birth = df['Birth Year'].max()
-        print('Birth Year:', recent_year_of_birth)
+        print('Recent birth year:', recent_year_of_birth)
     except KeyError:
         print("There is not [Birth Year] column in this spreadsheet!")
     try:
         most_common_year_of_birth = df['Birth Year'].mode().loc[0]
-        print('Birth Year:', most_common_year_of_birth )
+        print('Most common birth year:', most_common_year_of_birth)
     except KeyError:
-        print("There is not [Birth Year] column in this spreadsheet!")
+        print("There is no [Birth Year] column in this spreadsheet!")
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
