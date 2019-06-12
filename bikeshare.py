@@ -2,7 +2,7 @@ import time
 import pandas as pd
 import numpy as np
 
-
+print("provide information about CITY_DATA, months and days!")
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
@@ -32,13 +32,13 @@ def get_filters():
 
 
     # TO DO: get user input for month (all, january, february, ... , june)
-    month = input('Enter the name of the month to analysed {}:'.format(months))
+    month = user_input('Enter the name of the month to analysed {}:'.format(months)).strip().lower()
 
 
 
 
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
-    day = input('Enter name of the day of week to analyzed {}:'.format(days))
+    day = user_input('Enter name of the day of week to analyzed {}:'.format(days)).strip().lower()
 
 
 
@@ -95,16 +95,16 @@ def time_stats(df):
 
     # TO DO: display the most common month
     most_common_month = df['month'].value_counts().idxmax()
-    print('display most common month:', most_common_month)
+    print('Most common month: {}'.format(most_common_month))
 
     # TO DO: display the most common day of week
     most_common_day_of_week = df['day_of_week'].value_counts().idxmax()
-    print('Display most common day of week:', most_common_day_of_week)
+    print('Most common day of week: {}'.format(most_common_day_of_week))
 
 
     # TO DO: display the most common start hour
     most_common_hour = df['hour'].value_counts().idxmax()
-    print('Display the common start hour:', most_common_hour)
+    print('Most common start hour: {}'.format(most_common_hour))
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
